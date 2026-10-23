@@ -1,1 +1,5 @@
+Dataset Name: Apache NuttX RTOS
 
+Dataset Source: https://github.com/apache/nuttx
+
+Purpose: To extract Kconfig options, including names, types, defaults, dependencies, help text, and source file paths, for the ConfigProof project.
