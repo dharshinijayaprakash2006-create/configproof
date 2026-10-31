@@ -8,3 +8,11 @@ logs/
 data/raw/
 *.sqlite
 .DS_Store
+
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+logs/
+.env
