@@ -92,3 +92,19 @@ Note: These commands assume the project contains the specified files and endpoin
 
 To be added in Week 2 after deployment.
 
+
+## Run with Docker
+
+Requires Docker Desktop (Engine running).
+
+```bash
+cp .env.example .env        # Windows: Copy-Item .env.example .env
+docker compose up --build
+```
+
+- API: http://127.0.0.1:8000
+- Liveness: `GET /health` (process is up, no database call)
+- Readiness: `GET /ready` (checks Postgres, returns 503 if it is down)
+- Database: pgvector/pgvector:pg16 on port 5432 (user `app`, password `app`, database `rag`; local development only)
+
+Stop everything with `docker compose down`. Add `-v` to also delete the database volume.
