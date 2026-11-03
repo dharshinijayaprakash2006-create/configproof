@@ -30,14 +30,5 @@ Commit after every class. Tag every Friday: `git tag week-N && git push origin w
 |---|---|---|
 | | | |
 
-## Week 2 summary (Sessions 5 and 6)
 
-- Session 5: streaming /chat over SSE, safe retries, fallback model, cost log per call, /usage endpoint.
-- Session 6: /ready readiness route (checks Postgres, returns 503 if down), Dockerfile, docker-compose with API + pgvector, .dockerignore.
-- /health is liveness (no database call); /ready is readiness (database reachable).
-- Secrets: .env is never committed; compose sets DATABASE_URL for local development only.
-- CI: GitHub Actions runs ruff and pytest. Fixed an import error by using python -m pytest.
-- Tests: 15 passing locally and on GitHub.
-- Run locally: docker compose up --build, then GET /health and GET /ready.
-- Stop everything: docker compose down (add -v to also delete the database volume).
-- Lesson: an image is the built package, a container is a running copy of it.
+- GenAI 8: parser (clean.py, parse.py) with tests; 50 NuttX files parsed; sample_pages.json committed; Parsing section added to DATASET.md.
