@@ -1,4 +1,5 @@
 """Added for Session 5: answer with a second model when the main one is unavailable."""
+
 from collections.abc import AsyncIterator
 
 from app.llm.base import LLMUnavailable, StreamResult

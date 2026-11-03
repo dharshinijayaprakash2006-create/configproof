@@ -1,4 +1,5 @@
 """Added for Session 5: fallback model and GET /usage."""
+
 import asyncio
 import json
 
@@ -15,9 +16,14 @@ MSGS = [Message(role="user", content="hello")]
 
 
 def slow_main(handler):
-    return OpenAICompatProvider(base_url="http://test/v1", api_key="k", model="main-model",
-                                max_retries=1, backoff_base_seconds=0.0,
-                                transport=httpx.MockTransport(handler))
+    return OpenAICompatProvider(
+        base_url="http://test/v1",
+        api_key="k",
+        model="main-model",
+        max_retries=1,
+        backoff_base_seconds=0.0,
+        transport=httpx.MockTransport(handler),
+    )
 
 
 def collect(p):
@@ -54,8 +60,8 @@ def test_main_answers_without_fallback():
 def test_usage_totals_per_day(client, tmp_path):
     log = [
         {"ts": 1792800000.0, "input_tokens": 1200, "output_tokens": 300, "cost_usd": 0.00105},  # 2026-10-24
-        {"ts": 1792810000.0, "input_tokens": 800, "output_tokens": 200, "cost_usd": 0.0007},    # 2026-10-24
-        {"ts": 1792900000.0, "input_tokens": 100, "output_tokens": 50, "cost_usd": 0.000125},   # 2026-10-25
+        {"ts": 1792810000.0, "input_tokens": 800, "output_tokens": 200, "cost_usd": 0.0007},  # 2026-10-24
+        {"ts": 1792900000.0, "input_tokens": 100, "output_tokens": 50, "cost_usd": 0.000125},  # 2026-10-25
     ]
     path = client.settings.cost_log_path
     with open(path, "w", encoding="utf-8") as f:

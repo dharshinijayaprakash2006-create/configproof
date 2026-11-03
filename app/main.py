@@ -65,10 +65,14 @@ async def chat(req: ChatRequest, settings: SettingsDep, provider: ProviderDep):
             yield sse({"error": str(exc)}, event="error")
         latency_ms = (time.perf_counter() - start) * 1000
         record = log_call(
-            settings.cost_log_path, provider=provider.name, model=result.model or provider.model,
-            usage=result.usage, latency_ms=latency_ms,
+            settings.cost_log_path,
+            provider=provider.name,
+            model=result.model or provider.model,
+            usage=result.usage,
+            latency_ms=latency_ms,
             price_in_per_m=settings.price_input_per_million,
-            price_out_per_m=settings.price_output_per_million, ok=ok,
+            price_out_per_m=settings.price_output_per_million,
+            ok=ok,
             fallback_used=result.fallback_used,
         )
         yield sse({"usage": result.usage.model_dump(), "cost_usd": record["cost_usd"]}, event="done")

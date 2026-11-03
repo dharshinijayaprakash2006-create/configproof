@@ -26,8 +26,11 @@ def sse_body(pieces, usage=None):
 
 def make_provider(handler, max_retries=3):
     return OpenAICompatProvider(
-        base_url="http://test/v1", api_key="k", model="m",
-        max_retries=max_retries, backoff_base_seconds=0.0,
+        base_url="http://test/v1",
+        api_key="k",
+        model="m",
+        max_retries=max_retries,
+        backoff_base_seconds=0.0,
         transport=httpx.MockTransport(handler),
     )
 
