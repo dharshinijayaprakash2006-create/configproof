@@ -8,3 +8,9 @@ def test_ready_without_database(client):
     r = client.get("/ready")
     assert r.status_code == 200
     assert r.json()["database"] == "not configured"
+
+
+def test_usage_returns_json(client):
+    r = client.get("/usage")
+    assert r.status_code == 200
+    assert isinstance(r.json(), dict)
