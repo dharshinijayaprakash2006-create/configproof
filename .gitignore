@@ -18,3 +18,5 @@ logs/
 .env
 
 configproof/
+
+data/parsed/pages.jsonl
