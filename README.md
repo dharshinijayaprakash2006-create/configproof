@@ -1,6 +1,8 @@
 [![CI](https://github.com/dharshinijayaprakash2006-create/configproof/actions/workflows/ci.yml/badge.svg)](https://github.com/dharshinijayaprakash2006-create/configproof/actions/workflows/ci.yml)
 
- # ConfigProof
+# ConfigProof
+
+**Live:** https://configproof.onrender.com/health · first request after 15 idle minutes takes about a minute (free tier)
 
 ConfigProof - Automated Firmware Configuration Verification for Apache NuttX RTOS.
 
@@ -92,8 +94,9 @@ Note: These commands assume the project contains the specified files and endpoin
 
 ## Live link
 
-To be added in Week 2 after deployment.
+https://configproof.onrender.com/health
 
+The app runs on Render's free tier, so the first request after 15 idle minutes takes about a minute. Files written to disk are lost on redeploy.
 
 ## Run with Docker
 
