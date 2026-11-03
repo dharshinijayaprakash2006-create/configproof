@@ -1,6 +1,8 @@
  # ConfigProof
 
-ConfigProof — Automated Firmware Configuration Verification for Apache NuttX RTOS.
+[![CI](https://github.com/dharshinijayaprakash2006-create/configproof/actions/workflows/ci.yml/badge.svg)](https://github.com/dharshinijayaprakash2006-create/configproof/actions/workflows/ci.yml)
+
+ConfigProof - Automated Firmware Configuration Verification for Apache NuttX RTOS.
 
 ## Problem
 
