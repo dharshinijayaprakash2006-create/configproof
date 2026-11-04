@@ -14,7 +14,7 @@ def make_pdf(path):
         c.drawString(50, 760, heading)
         c.setFont("Helvetica", 11)
         for i in range(3):
-            c.drawString(50, 730 - 20 * i, f"Body line {i} for section {n} of the policy.")
+            c.drawString(50, 730 - 20 * i, f"{['Alpha', 'Bravo', 'Charlie'][i]} body line of section {n}")
         c.setFont("Helvetica", 8)
         c.drawString(50, 30, f"Page {n} of 3")
         c.showPage()
@@ -56,7 +56,7 @@ def test_pdf_header_and_page_numbers_removed(tmp_path):
     text = parse.parse_file(pdf)[0]["text"]
     assert "Customer Policy 2026" not in text
     assert "Page 1 of 3" not in text
-    assert "Body line 0" in text
+    assert "Alpha body line" in text
 
 
 def test_html_keeps_content_drops_menus(tmp_path):
