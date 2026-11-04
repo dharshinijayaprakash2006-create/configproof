@@ -31,6 +31,11 @@ class Settings(BaseSettings):
     # Needed for /ready in Session 6
     database_url: str = ""
 
+    # GenAI 9: embeddings
+    embedding_provider: str = "fake"  # fake (tests, CI) | local (free model on your CPU)
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    embedding_dim: int = 384
+
 
 @lru_cache
 def get_settings() -> Settings:
