@@ -113,3 +113,15 @@ docker compose up --build
 - Database: pgvector/pgvector:pg16 on port 5432 (user `app`, password `app`, database `rag`; local development only)
 
 Stop everything with `docker compose down`. Add `-v` to also delete the database volume.
+
+## Ingestion (GenAI 9)
+
+Parsed pages are chunked by heading (max 1,000 characters, 150 overlap), embedded on the CPU with all-MiniLM-L6-v2 (384 dimensions), and stored in Postgres with pgvector and an HNSW cosine index. A SHA-256 content hash with a unique constraint means re-running adds nothing twice.
+
+```bash
+docker compose up -d db
+python -m tools.preview_chunks data/parsed --n 5
+python -m tools.ingest data/parsed --report INGESTION.md
+```
+
+Numbers from my runs are in [INGESTION.md](INGESTION.md).
